@@ -15,10 +15,15 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+compileJava {
+    inputs.files(processResources)
 }
